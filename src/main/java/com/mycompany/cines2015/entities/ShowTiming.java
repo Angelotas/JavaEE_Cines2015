@@ -33,6 +33,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ShowTiming.findAll", query = "SELECT s FROM ShowTiming s"),
     @NamedQuery(name = "ShowTiming.findById", query = "SELECT s FROM ShowTiming s WHERE s.id = :id"),
     @NamedQuery(name = "ShowTiming.findByDay", query = "SELECT s FROM ShowTiming s WHERE s.day = :day")})
+    @NamedQuery(name = "ShowTiming.findByMovieAndTimingId", query = "SELECT s "
+        + "FROM ShowTiming s WHERE s.movieId.id = :movieId AND s.timingId.id = :timingId")
+        //Query de búsqueda
 public class ShowTiming implements Serializable {
 
     private static final long serialVersionUID = 1L;

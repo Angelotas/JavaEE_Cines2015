@@ -8,16 +8,10 @@ package com.mycompany.cines2015.booking;
 import com.mycompany.cines2015.entities.Movie;
 import com.mycompany.cines2015.entities.ShowTiming;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 import javax.faces.flow.FlowScoped;
 import javax.inject.Named;
-import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.NamedQuery;
-import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
+import javax.persistence.*;
 /**
  *
  * @author Ángel
@@ -25,9 +19,7 @@ import javax.persistence.PersistenceContext;
 @Named  //clase EL inyectable
 @FlowScoped("booking")  //bean de tipo Flow
 @PersistenceContext  //una entidad siempre se maneja en contexto de persistencia
-@NamedQuery(name = "ShowTiming.findByMovieAndTimingId", query = "SELECT s "
-        + "FROM ShowTiming s WHERE s.movieId.id = :movieId AND s.timingId.id = :timingId")
-        //Query de búsqueda
+
 
 public class Booking implements Serializable{
     
