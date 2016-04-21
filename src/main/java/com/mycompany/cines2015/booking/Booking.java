@@ -8,38 +8,35 @@ package com.mycompany.cines2015.booking;
 import com.mycompany.cines2015.entities.Movie;
 import com.mycompany.cines2015.entities.ShowTiming;
 import java.io.Serializable;
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.StringTokenizer;
 import javax.faces.flow.FlowScoped;
 import javax.inject.Named;
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
 /**
  *
  * @author Ángel
  */
 @Named  //clase EL inyectable
 @FlowScoped("booking")  //bean de tipo Flow
-@PersistenceContext  //una entidad siempre se maneja en contexto de persistencia
-
-
 public class Booking implements Serializable{
     
     //la clase Flow Scoped de soporte a Booking.xhtml
     
     int movieId;
+    
+    @PersistenceContext  //una entidad siempre se maneja en contexto de 
     EntityManager em;
+    
     String startTime;
     int startTimeId;
     private double cantidad;
     private String tarjeta = "";
     private Date fecha = new Date();
 
-    public EntityManager getEm() {
-        return em;
-    }
-
-    public void setEm(EntityManager em) {
-        this.em = em;
-    }
 
     public double getCantidad() {
         return cantidad;

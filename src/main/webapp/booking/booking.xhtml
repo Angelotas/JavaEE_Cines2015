@@ -14,22 +14,21 @@
                 <!--implementar es la lista de las películas
                 como radio button (h:selectOneRadio), para que el
                 usuario seleccione la película que desea reservar-->
-                <ui:define name="content">
-                    <h2>Selecciona una película</h2>
-                    <h:form prependId="false">
-                        
-                        <h:selectOneRadio value="#{booking.movieId}" <!-- almacena id de pelicula-->
-                        layout="pageDirection"
-                        required="true">
-                            <f:selectItems value="#{movieFacadeREST.findAll()}"
-                                var="m" // cada una de las filas de la tabla
-                                itemValue="#{m.id}"
-                                itemLabel="#{m.name}"/> <!--muestra el nombre de la peli-->
-                        </h:selectOneRadio>
-                        <p:commandButton id="shows" value="Selecciona una hora" action="showtimes"/>
-                    </h:form>
-                </ui:define>
                 
+                <h2>Selecciona una película</h2>
+                <h:form prependId="false">
+                    <h:selectOneRadio value="#{booking.movieId}"
+                            layout="pageDirection"
+                            required="true">
+                        <!--Cada una de las filas de la tabla-->
+                        <f:selectItems value="#{movieFacadeREST.findAll()}"
+                            var="m"  
+                            itemValue="#{m.id}"
+                            itemLabel="#{m.name}"/>
+                    </h:selectOneRadio>
+
+                    <p:commandButton id="shows" value="Selecciona una hora" action="showtimes"/>
+                </h:form>
             </ui:define>
 
         </ui:composition>
