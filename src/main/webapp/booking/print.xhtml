@@ -21,31 +21,31 @@
                 
                 <h2><h:outputText value="Informacion del pago"/></h2>
                 <p:panelGrid columns="2">
-                    <!--FILA CANTIDAD-->
+                    
                     <h:outputText value="Cantidad:"/>
                     <h:outputText value="#{booking.cantidad}">
                         <f:convertNumber type="currency"/>
                     </h:outputText>
-                    <!--FILA TARJETA DE CREDITO-->
+                    
                     <h:outputText value="Tarjeta de credito:"/>
                     <h:outputText value="#{booking.tarjeta}"/>
-                    <!--FILA FECHA-->
+                    
                     <h:outputText value="Fecha de expiracion:"/>
                     <h:outputText value="#{booking.fecha}">
                         <f:convertDateTime pattern="MM/yyyy"/>
                     </h:outputText>
                     
-                    <p:panelGrid columns="2">
-                        <h:outputText value="Código QR con tu entrada:" />
-                        <p:barcode value="Aquí está tu entrada para #{booking.movieName}" type="qr"/>
-                    </p:panelGrid>
-                    
-                    <p:commandButton value="Imprimir" type="button" icon="ui-icon-print">
-                        <p:printer target="info"/> <!--imprime los datos dentro del id=info-->
-                    </p:commandButton>
-                    
                 </p:panelGrid>
+                
+                <p:panelGrid columns="2">
+                    <h:outputText value="Código QR con tu entrada:" />
+                    <p:barcode value="Aquí está tu entrada para #{booking.movieName}" type="qr"/>
+                </p:panelGrid>
+                
                 <p:commandButton id="home" value="Inicio" action="goHome" icon="ui-icon-home"/>
+                <p:commandButton value="Imprimir" type="button" icon="ui-icon-print">
+                    <p:printer target="info"/>
+                </p:commandButton>
             </ui:define>
 
         </ui:composition>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <!--Esta clase nos va a permitir
+            -conectarnos y desconectarnos del chat
+            -ver usuarios conectados
+            -enviar mendaje
+            -ver mensajes enviados-->
+        <!--No utilizaremos lenguaje EL, sino javascript-->
+        <ui:composition template="./../WEB-INF/template.xhtml">
+
+            <ui:define name="content">
+                <form action="">
+                    <table>
+                        <tr> <!--FILA-->
+                            <td> <!--COLUMNA-->
+                                <h3><p:outputLabel value="Mensajes" /></h3>
+                                <p:inputTextarea readonly="true" id="chatlog" rows="10" cols="50" autoResize="false" />
+                            </td>
+                            <td>
+                                <h3><p:outputLabel value="Usuarios" /></h3>
+                                <p:inputTextarea readonly="true" id="users" rows="10" cols="20" autoResize="false" />
+                            </td>
+                        </tr>
+                        
+                        <tr>    
+                            <td colspan="2">
+                                <p:inputText id="texto" value="Usuario"/>
+                                <p:commandButton onclick="join();" value="Unirse"/>
+                                <p:commandButton onclick="send_message();" value="Enviar"/><p/>
+                                <p:commandButton onclick="disconnect();" value="Desconectarse"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <div id="output"></div>
+                
+                <script language="javascript" type="text/javascript"
+                    src="${facesContext.externalContext.requestContextPath}/chat/websocket.js">
+                </script>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
