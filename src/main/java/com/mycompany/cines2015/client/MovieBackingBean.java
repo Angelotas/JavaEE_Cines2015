@@ -17,7 +17,6 @@ import javax.inject.Named;
 @SessionScoped
 public class MovieBackingBean implements Serializable{
 
-    
     int movieId;
     
     public int getMovieId() {
